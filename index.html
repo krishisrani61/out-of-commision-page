@@ -3,47 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Link Update</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
+    <title>Redirecting...</title>
+    <script>
+        // Define the domain-to-URL redirection table
+        const redirectionTable = {
+            "example1.com": "https://example1-redirect.com",
+            "example2.com": "https://example2-redirect.com",
+            "localhost": "https://localhost-redirect.com" // Use this for local testing
+        };
+
+        // Function to get the domain of the current page
+        function getCurrentDomain() {
+            return window.location.hostname;
         }
-        .container {
-            max-width: 600px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        // Function to handle redirection based on domain
+        function handleRedirection() {
+            const currentDomain = getCurrentDomain();
+            if (redirectionTable[currentDomain]) {
+                // If the current domain is found in the table, redirect to the associated URL
+                window.location.href = redirectionTable[currentDomain];
+            } else {
+                console.log("No redirection configured for this domain.");
+            }
         }
-        h1 {
-            color: #333;
-        }
-        p {
-            color: #666;
-            margin-bottom: 20px;
-        }
-        a {
-            text-decoration: none;
-            color: #007bff;
-        }
-    </style>
+
+        // Redirect when the page loads
+        window.onload = handleRedirection;
+    </script>
 </head>
 <body>
-    <div class="container">
-        <h1>Link Update</h1>
-        <p>The app has moved to a new location. Please update your bookmarks and access pick app using the following list:</p>
-        <a href="https://krishisrani61.github.io/Appel-Game/" target="_blank">Appel: https://krishisrani61.github.io/Appel-Game/</a>
-        <br>
-        <a href="https://krishisrani61.github.io/Cookie-Clicker-Storage/" target="_blank">Cookie Clicker Save: https://krishisrani61.github.io/Cookie-Clicker-Storage/</a>
+    <h1>Domain Redirection in Progress</h1>
 
-    </div>
 </body>
 </html>
